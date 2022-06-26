@@ -367,6 +367,7 @@ body {
   grid-gap: 45px 25px;
 }
 .services__item {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -376,7 +377,6 @@ body {
   border-radius: 10px;
   background-color: #fff;
   transition: all 0.1s linear;
-  cursor: pointer;
 }
 .services__item:hover {
   transform: scale(1.01);
@@ -384,6 +384,15 @@ body {
 }
 .services__item:hover .services__img img {
   transform: scale(1.1);
+}
+.services__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 .services__img {
   width: 300px;
