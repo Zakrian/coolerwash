@@ -350,7 +350,8 @@ body {
 .intro__text {
   font-size: 12px;
 }
-.intro__btn_mobile {
+
+.btn__mobile {
   display: none;
 }
 
@@ -487,16 +488,17 @@ body {
   .intro__btn {
     color: #f5f2de;
   }
-  .intro__btn_pc {
-    display: none;
-  }
-  .intro__btn_mobile {
-    display: block;
-  }
 
   .services__inner {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
+  }
+
+  .btn__pc {
+    display: none;
+  }
+  .btn__mobile {
+    display: block;
   }
 }
 @media (max-width: 499.99px) {
