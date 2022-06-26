@@ -145,3 +145,24 @@ if (window.innerWidth <= 767.99) {
 // 		animOnScroll();
 // 	}, 500);
 // }
+
+// Swiper slider ============================================================
+const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+	speed: 10000,
+	width: 800,
+  breakpoints: {
+    320: {
+      slidesPerView: 8,
+      spaceBetween: 10
+    },
+    991.99: {
+      slidesPerView: 5,
+      spaceBetween: 30
+    }
+  },
+	autoplay: {
+		delay: 800,
+	},
+});
