@@ -350,6 +350,9 @@ body {
 .intro__text {
   font-size: 12px;
 }
+.intro__btn_mobile {
+  display: none;
+}
 
 .brends {
   background-color: #fff;
@@ -483,6 +486,12 @@ body {
   }
   .intro__btn {
     color: #f5f2de;
+  }
+  .intro__btn_pc {
+    display: none;
+  }
+  .intro__btn_mobile {
+    display: block;
   }
 
   .services__inner {
