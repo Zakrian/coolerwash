@@ -188,6 +188,7 @@ body {
 .logo__text {
   color: #f5f2de;
   transition: all 0.2s ease-in-out;
+  font-size: calc(18px + 2 * ((100vw - 320px) / 860));
 }
 
 .menu-icon {
@@ -231,13 +232,16 @@ body {
 .menu__list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 70px;
+  justify-content: end;
+}
+.menu__item:not(:last-child) {
+  margin-right: 15%;
 }
 .menu__link {
   position: relative;
   color: #f5f2de;
   transition: all 0.2s ease-in-out;
+  font-size: calc(18px + 2 * ((100vw - 320px) / 860));
 }
 .menu__link::after {
   content: "";
@@ -272,21 +276,27 @@ body {
     top: 0;
     right: 0;
     z-index: 500;
-    width: 85vw;
-    height: 100vh;
+    width: 100%;
+    height: 70px;
     background-color: #3d405b;
     display: flex;
     align-items: center;
-    justify-content: center;
-    transform: translateX(120%);
-    transition: all 0.4s ease 0.15s;
+    justify-content: space-between;
+    transform-origin: top;
+    transform: translateY(69px) scaleY(0);
+    visibility: hidden;
+    transition: all 0.3s ease 0.15s;
   }
   .menu__list {
-    flex-direction: column;
-    font-size: 23px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  .menu__item:not(:last-child) {
+    margin-right: 20%;
   }
   .menu._active {
-    transform: translateX(0);
+    transform: translateY(69px) scaleY(1);
+    visibility: visible;
   }
 }
 .intro {

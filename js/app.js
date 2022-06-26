@@ -68,11 +68,12 @@ document.querySelectorAll('a[href^="#"').forEach(link => {
 });
 
 // Изменение порядков элементов DOM при определенной ширине экрана ================
-// const headerBtn = document.querySelector('.header__btn');
+let main = document.querySelector('.main')
+let brends = document.querySelector('.brends')
 
-// if (window.innerWidth <= 649) {
-// 	menuBody.append(headerBtn)
-// }
+if (window.innerWidth <= 767.99) {
+	main.append(brends)
+}
 
 // Аккордеон ======================================================================
 // const questions = document.querySelectorAll('.accordion');
