@@ -266,15 +266,12 @@ body {
   .container {
     max-width: none;
   }
-
   .header {
     height: 50px;
   }
-
   .menu-icon {
     display: flex;
   }
-
   .menu {
     position: absolute;
     top: 0;
@@ -312,7 +309,6 @@ body {
   }
 }
 .intro {
-  height: 75vh;
   padding-top: 120px;
 }
 .intro__inner {
@@ -448,7 +444,6 @@ body {
   .container {
     max-width: none;
   }
-
   .intro {
     background-image: url("../img/coolerInner.png");
     background-size: cover;
@@ -488,12 +483,10 @@ body {
   .intro__btn {
     color: #f5f2de;
   }
-
   .services__inner {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
   }
-
   .btn__pc {
     display: none;
   }
@@ -548,7 +541,6 @@ body {
   .container {
     max-width: none;
   }
-
   .footer__inner {
     flex-wrap: wrap;
     justify-content: center;

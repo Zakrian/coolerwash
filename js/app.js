@@ -1,38 +1,4 @@
-// Определение типа устройства ===============================
-// const isMobile = {
-// 	Android: function () {
-// 		return navigator.userAgent.match(/Android/i);
-// 	},
-// 	BlackBerry: function () {
-// 		return navigator.userAgent.match(/BlackBerry/i);
-// 	},
-// 	iOS: function () {
-// 		return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-// 	},
-// 	Opera: function () {
-// 		return navigator.userAgent.match(/Opera Mini/i);
-// 	},
-// 	Windows: function () {
-// 		return navigator.userAgent.match(/IEMobile/i);
-// 	},
-// 	any: function () {
-// 		return (
-// 			isMobile.Android() ||
-// 			isMobile.BlackBerry() ||
-// 			isMobile.iOS() ||
-// 			isMobile.Opera() ||
-// 			isMobile.Windows());
-// 	}
-// };
-
-// Меню бургер ===============================================
-
-//Логика скрипта бургера:
-//1. Получаем объект бургер
-//2. Получаем меню, которое нужно открыть
-//3. Вешаем обработчик события click на бургер (п.1)
-//4. Добавляем (toggle) класс к меню (п.2)
-
+// Меню бургер =====================================================================
 const menuBurger = document.querySelector('.menu-icon');
 const menuBody = document.querySelector('.menu');
 
@@ -45,7 +11,7 @@ if (menuBurger) {
 	})
 }
 
-// Плавный скролл к якорю ===================================
+// Плавный скролл к якорю =========================================================
 document.querySelectorAll('a[href^="#"').forEach(link => {
 
 	link.addEventListener('click', function (e) {
@@ -55,8 +21,7 @@ document.querySelectorAll('a[href^="#"').forEach(link => {
 
 		const scrollTarget = document.getElementById(href);
 
-		// const topOffset = document.querySelector('.scrollto').offsetHeight;
-		const topOffset = 80; // Отступ сверху 
+		const topOffset = 80;
 		const elementPosition = scrollTarget.getBoundingClientRect().top;
 		const offsetPosition = elementPosition - topOffset;
 
@@ -75,78 +40,7 @@ if (window.innerWidth <= 767.99) {
 	main.append(brends)
 }
 
-// Аккордеон ======================================================================
-// const questions = document.querySelectorAll('.accordion');
-
-// const closeQuestion = (el) => {
-// 	const content = el.querySelector('.accordion__text');
-// 	el.classList.remove('_active-acc');
-// 	content.style.maxHeight = null;
-// }
-
-// const openQuestion = (el) => {
-// 	const content = el.querySelector('.accordion__text');
-// 	el.classList.add('_active-acc');
-// 	content.style.maxHeight = content.scrollHeight + 'px';
-// }
-
-// const closeAllQuestions = () => questions.forEach(question => closeQuestion(question));
-
-// questions.forEach((el) => {
-// 	el.addEventListener('click', () => {
-// 		if (el.classList.contains('_active-acc')) {
-// 			closeQuestion(el);
-// 		} else {
-// 			closeAllQuestions();
-// 			openQuestion(el);
-// 		}
-// 	});
-// })
-
-// Animation on scroll ============================================================
-// const animItems = document.querySelectorAll('._anim-items');
-
-// if (animItems.length > 0) {
-// 	window.addEventListener('scroll', animOnScroll);
-
-// 	function animOnScroll() {
-// 		for (let index = 0; index < animItems.length; index++) {
-// 			const animItem = animItems[index];
-// 			const animItemHeight = animItem.offsetHeight;
-// 			const animItemOffset = offset(animItem).top;
-// 			const animStart = 4;
-
-// 			let animItemPoint = window.innerHeight - animItemHeight / animStart;
-
-// 			if (animItemHeight > window.innerHeight) {
-// 				let animItemPoint = window.innerHeight - window.innerHeight / animStart;
-// 			}
-
-// 			if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
-// 				animItem.classList.add('_show');
-// 			} else {
-// 				if (!animItem.classList.contains('_anim-no-hide')) {
-// 					animItem.classList.remove('_show');
-// 				}
-// 			}
-// 		}
-// 	}
-
-// 	function offset(el) {
-// 		const rect = el.getBoundingClientRect(),
-// 			scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-// 			scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-// 		return {
-// 			top: rect.top + scrollTop,
-// 			left: rect.left + scrollLeft
-// 		}
-// 	}
-// 	setTimeout(() => {
-// 		animOnScroll();
-// 	}, 500);
-// }
-
-// Swiper slider ============================================================
+// Swiper slider ==================================================================
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   loop: true,
@@ -166,3 +60,79 @@ const swiper = new Swiper('.swiper', {
 		delay: 800,
 	},
 });
+
+// Class for services section & his instances======================================
+class ServicesCard {
+	constructor(src, alt, name, descr, parentSelector) {
+		this.src = src;
+		this.alt = alt;
+		this.name = name;
+		this.descr = descr;
+		this.parent = document.querySelector(parentSelector);
+	}
+
+	render() {
+		const el = document.createElement('div');
+		el.classList.add('services__item');
+
+		el.innerHTML = `
+			<a href="https://wa.me/79181366982?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%0A%D0%9C%D0%BD%D0%B5%20%D0%BD%D1%83%D0%B6%D0%BD%D0%BE%3A%20%20%0A%D0%90%D0%B4%D1%80%D0%B5%D1%81%3A%20%0A%D0%94%D0%B0%D1%82%D0%B0%3A%20" class="services__link btn__mobile"></a>
+			<a href="https://vk.com/coolerwash" target="_blank" class="services__link btn__pc"></a>
+			<div class="services__img">
+				<img src=${this.src} alt=${this.alt}>
+			</div>
+			<div class="services__name">${this.name}</div>
+			<div class="services__descr">${this.descr}</div>
+		`;
+
+		this.parent.append(el);
+	}
+}
+
+new ServicesCard(
+	'img/services/servicePack.jpg',
+	'Мойка сплит системы',
+	'Чистка сплит системы профилактическая',
+	'Профилактическая (плановая) чистка внутреннего и внешнего блоков сплит системы водой под давлением, а также чистка пластикового корпуса внутреннего блока.',
+	'.services__inner'
+).render();
+
+new ServicesCard(
+	'img/services/cleanAntiBak.jpg',
+	'Мойка сплит системы антибактериальная',
+	'Комплексная чистка сплит ситсемы',
+	'Комплексная чистка внутреннего и внешнего блоков сплит системы водой под давлением, антибактериальная обработка испарителя и вала(крыльчатки), а также чистка пластикового корпуса внутреннего блока',
+	'.services__inner'
+).render();
+
+new ServicesCard(
+	'img/services/freon.jpg',
+	'Фреон',
+	'Заправка хладагентом',
+	'Проверка давления и наличия фреона в системе. Дозаправка при необходимости (В случае, когда заправка НЕ требуется, плата за проверку давления = 0руб.)',
+	'.services__inner'
+).render();
+
+new ServicesCard(
+	'img/services/drenag.jpeg',
+	'Дренаж сплит системы',
+	'Чистка дренажной трубы',
+	'Разбор внутреннего блока сплит системы, чистка дренажного лотка, промывка, сборка внутреннего блока сплит ситсемы',
+	'.services__inner'
+).render();
+
+new ServicesCard(
+	'img/services/repair.jpg',
+	'Ремонт сплит системы',
+	'Модульный ремонт',
+	'Модульная замена частей внешнего блока (конденсатор, реле и т.п.)',
+	'.services__inner'
+).render();
+
+new ServicesCard(
+	'img/services/controller.jpg',
+	'Универсальный пульт сплит системы',
+	'Замена пульта',
+	'Приобретение универсального пульта, а также его прошивка под вашу модель сплит ситсемы',
+	'.services__inner'
+).render();
